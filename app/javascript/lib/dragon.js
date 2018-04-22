@@ -24,16 +24,18 @@ function preload() {
 }
 
 function create() {
-  this.add.group({
-    key: "background",
-    repeat: 9,
-    setXY: {
-      x: 32,
-      y: 32,
-      stepX: 64,
-      stepY: 0
-    }
-  })
+  for(let i = 0; i < 10; i++) {
+    this.add.group({
+      key: "background",
+      repeat: 9,
+      setXY: {
+        x: 32,
+        y: 32 + i * 64,
+        stepX: 64,
+        stepY: 0
+      }
+    })
+  }
 
   const player = this.add.sprite(0, 0, "player")
   player.setOrigin(0, 0)
