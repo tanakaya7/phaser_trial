@@ -1951,7 +1951,7 @@ event-emitter@~0.3.5:
     d "1"
     es5-ext "~0.10.14"
 
-eventemitter3@^3.0.0:
+eventemitter3@^3.0.0, eventemitter3@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-3.0.1.tgz#4ce66c3fc5b5a6b9f2245e359e1938f1ab10f960"
 
@@ -3965,6 +3965,12 @@ pbkdf2@^3.0.3:
 performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
+
+phaser@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/phaser/-/phaser-3.6.0.tgz#de258838325dc57fca1314ffb4627f7e03c90125"
+  dependencies:
+    eventemitter3 "^3.0.1"
 
 pify@^2.0.0, pify@^2.3.0:
   version "2.3.0"

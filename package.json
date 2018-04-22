@@ -5,7 +5,8 @@
     "@rails/webpacker": "3.4",
     "bootstrap": "^4.1.0",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "phaser": "^3.6.0"
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"
