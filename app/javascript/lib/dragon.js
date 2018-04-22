@@ -1,5 +1,5 @@
 import Phaser from "phaser/dist/phaser.min"
-import BackgroundImage from "../images/background.png"
+import BackgroundSprite from "../images/background-sprite.png"
 import PlayerSprite from "../images/player-sprite.png"
 
 const config = {
@@ -16,29 +16,24 @@ const config = {
 }
 
 const game = new Phaser.Game(config)
+let map
 let player
 let cursors
 
 function preload() {
-  this.load.image("background", BackgroundImage)
+  this.load.tilemapTiledJSON("map", "/dragon/map.json")
+  this.load.spritesheet("background", BackgroundSprite, {
+    frameWidth: 64, frameHeight: 64
+  })
   this.load.spritesheet("player", PlayerSprite, {
     frameWidth: 64, frameHeight: 64
   })
 }
 
 function create() {
-  for(let i = 0; i < 10; i++) {
-    this.add.group({
-      key: "background",
-      repeat: 9,
-      setXY: {
-        x: 32,
-        y: 32 + i * 64,
-        stepX: 64,
-        stepY: 0
-      }
-    })
-  }
+  map = this.make.tilemap({key: "map"})
+  const background = map.addTilesetImage("background")
+  const groundLayer = map.createDynamicLayer("World", background, 0, 0);
 
   player = this.add.sprite(0, 0, "player")
   player.setOrigin(0, 0)
