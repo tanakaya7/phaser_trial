@@ -3,7 +3,7 @@ import BackgroundImage from "../images/background.png"
 import PlayerSprite from "../images/player-sprite.png"
 
 const config = {
-  type: Phaser.AUTO,
+  type: Phaser.CANVAS,
   parent: "#screen",
   width: 640,
   height: 640,
