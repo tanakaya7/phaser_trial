@@ -5,8 +5,8 @@ import PlayerSprite from "../images/player-sprite.png"
 const config = {
   type: Phaser.CANVAS,
   parent: "#screen",
-  width: 640,
-  height: 640,
+  width: 320,
+  height: 320,
   scene: {
     key: "main",
     preload: preload,
@@ -38,6 +38,9 @@ function create() {
   player = this.add.sprite(0, 0, "player")
   player.setOrigin(0, 0)
   player.setFrame(0)
+
+  this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+  this.cameras.main.startFollow(player);
 
   cursors = this.input.keyboard.createCursorKeys()
 }
