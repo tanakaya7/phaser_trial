@@ -10,11 +10,14 @@ const config = {
   scene: {
     key: "main",
     preload: preload,
-    create: create
+    create: create,
+    update: update
   }
 }
 
 const game = new Phaser.Game(config)
+let player
+let cursors
 
 function preload() {
   this.load.image("background", BackgroundImage)
@@ -37,7 +40,28 @@ function create() {
     })
   }
 
-  const player = this.add.sprite(0, 0, "player")
+  player = this.add.sprite(0, 0, "player")
   player.setOrigin(0, 0)
   player.setFrame(0)
+
+  cursors = this.input.keyboard.createCursorKeys()
+}
+
+function update(time, delta) {
+  if (cursors.left.isDown) {
+    player.setFrame(0)
+    if (player.x > 0) player.setX(player.x - 4)
+  }
+  else if (cursors.right.isDown) {
+    player.setFrame(1)
+    if (player.x < 640 - 64) player.setX(player.x + 4)
+  }
+  else if (cursors.up.isDown) {
+    if (player.y > 0) player.setY(player.y - 4)
+  }
+  else if (cursors.down.isDown) {
+    if (player.y < 640 - 64) player.setY(player.y + 4)
+  }
+  else {
+  }
 }
