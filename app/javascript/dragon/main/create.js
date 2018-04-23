@@ -1,38 +1,29 @@
-import { keydownEventHandlers } from "./event_handlers"
-
 export default function create() {
   const self = this
-  this._main = {}
-  this._main.map = this.make.tilemap({key: "main_map"})
-  const background = this._main.map.addTilesetImage("background")
-  this._main.map.createDynamicLayer("World", background, 0, 0);
+  this._map = this.make.tilemap({key: "main_map"})
+  const background = this._map.addTilesetImage("background")
+  this._map.createDynamicLayer("World", background, 0, 0);
 
   const player = createPlayer(this)
 
   prepareCamera(this)
-
-  window.document.onkeydown = event => {
-    const h = keydownEventHandlers[event.key]
-    if (h) h(self, event)
-    else console.log(event.key)
-  }
 }
 
-function createPlayer(game) {
-  const player = game.add.sprite(0, 0, "player")
+function createPlayer(scene) {
+  const player = scene.add.sprite(0, 0, "player")
 
   player.setOrigin(0, 0)
   player.setFrame(0)
   player._x = 1
   player._y = 1
 
-  game._main.player = player
+  scene._player = player
 
   return player
 }
 
-function prepareCamera(game) {
-  game.cameras.main.setBounds(0, 0,
-    game._main.map.widthInPixels, game._main.map.heightInPixels);
-  game.cameras.main.startFollow(game._main.player);
+function prepareCamera(scene) {
+  scene.cameras.main.setBounds(0, 0,
+    scene._map.widthInPixels, scene._map.heightInPixels);
+  scene.cameras.main.startFollow(scene._player);
 }

@@ -1,10 +1,8 @@
 export default function update(time, delta) {
-  const vars = this._main
+  this._player.x = this._player._x * 64
+  this._player.y = this._player._y * 64
 
-  vars.player.x = vars.player._x * 64
-  vars.player.y = vars.player._y * 64
-
-  const tile = vars.map.getTileAt(vars.player._x, vars.player._y, true)
+  const tile = this._map.getTileAt(this._player._x, this._player._y, true)
 
   const div = document.getElementById("message")
   div.textContent = tile.index

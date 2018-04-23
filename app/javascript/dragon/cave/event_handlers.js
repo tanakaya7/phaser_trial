@@ -8,45 +8,43 @@ export const keydownEventHandlers = {
   ArrowDown
 }
 
-function movable_to(game, deltaX, deltaY) {
-  const vars = game._cave
-  const x = vars.player._x + deltaX
-  const y = vars.player._y + deltaY
+function movable_to(scene, deltaX, deltaY) {
+  const x = scene._player._x + deltaX
+  const y = scene._player._y + deltaY
 
   if (x === 0) return false
-  if (x === vars.map.width - 1) return false
+  if (x === scene._map.width - 1) return false
   if (y === 0) return false
-  if (y === vars.map.height - 1) return false
+  if (y === scene._map.height - 1) return false
 
-  const tile = vars.map.getTileAt(x, y, true)
+  const tile = scene._map.getTileAt(x, y, true)
 
   return (tile.index !== WALL)
 }
 
-function Space(game, event) {
-  const vars = game._cave
+function Space(scene, event) {
   const tile =
-    vars.map.getTileAt(vars.player._x, vars.player._y, true)
+    scene._map.getTileAt(scene._player._x, scene._player._y, true)
 
   if (tile.index === EXIT) {
-    game.scene.start("main")
+    scene.scene.switch("main")
   }
 }
 
-function ArrowLeft(game, event) {
-  game._cave.player.setFrame(0)
-  if (movable_to(game, -1, 0)) game._cave.player._x--
+function ArrowLeft(scene, event) {
+  scene._player.setFrame(0)
+  if (movable_to(scene, -1, 0)) scene._player._x--
 }
 
-function ArrowRight(game, event) {
-  game._cave.player.setFrame(1)
-  if (movable_to(game, 1, 0)) game._cave.player._x++
+function ArrowRight(scene, event) {
+  scene._player.setFrame(1)
+  if (movable_to(scene, 1, 0)) scene._player._x++
 }
 
-function ArrowUp(game, event) {
-  if (movable_to(game, 0, -1)) game._cave.player._y--
+function ArrowUp(scene, event) {
+  if (movable_to(scene, 0, -1)) scene._player._y--
 }
 
-function ArrowDown(game, event) {
-  if (movable_to(game, 0, 1)) game._cave.player._y++
+function ArrowDown(scene, event) {
+  if (movable_to(scene, 0, 1)) scene._player._y++
 }
