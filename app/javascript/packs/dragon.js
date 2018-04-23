@@ -1,8 +1,8 @@
 import Phaser from "phaser/dist/phaser.min"
 
-import preload from "../lib/preload"
-import create from "../lib/create"
-import update from "../lib/update"
+import preload from "../dragon/preload"
+import create from "../dragon/create"
+import update from "../dragon/update"
 
 const config = {
   type: Phaser.CANVAS,
