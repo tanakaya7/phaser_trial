@@ -6,7 +6,7 @@ import update from "../dragon/update"
 
 const config = {
   type: Phaser.CANVAS,
-  parent: "#screen",
+  parent: "screen",
   width: 320,
   height: 320,
   scene: {
