@@ -1,6 +1,7 @@
 import { keydownEventHandlers } from "./event_handlers"
 
 export default function create() {
+  const self = this
   this._map = this.make.tilemap({key: "map"})
   const background = this._map.addTilesetImage("background")
   this._map.createDynamicLayer("World", background, 0, 0);
@@ -11,7 +12,7 @@ export default function create() {
 
   window.document.onkeydown = event => {
     const h = keydownEventHandlers[event.key]
-    if (h) h(player, event)
+    if (h) h(self, event)
   }
 }
 
@@ -20,8 +21,8 @@ function createPlayer(game) {
 
   player.setOrigin(0, 0)
   player.setFrame(0)
-  player._x = 0
-  player._y = 0
+  player._x = 1
+  player._y = 1
 
   game._player = player
 
