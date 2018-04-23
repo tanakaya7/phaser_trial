@@ -1,20 +1,13 @@
 import Phaser from "phaser/dist/phaser.min"
 
-import preload from "../dragon/preload"
-import create from "../dragon/create"
-import update from "../dragon/update"
+import mainScene from "../dragon/main"
 
 const config = {
   type: Phaser.CANVAS,
   parent: "screen",
   width: 320,
   height: 320,
-  scene: {
-    key: "main",
-    preload: preload,
-    create: create,
-    update: update
-  }
+  scene: [mainScene]
 }
 
-new Phaser.Game(config)
+const game = new Phaser.Game(config)

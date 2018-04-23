@@ -1,5 +1,5 @@
-import BackgroundSprite from "../images/background-sprite.png"
-import PlayerSprite from "../images/player-sprite.png"
+import BackgroundSprite from "../../images/background-sprite.png"
+import PlayerSprite from "../../images/player-sprite.png"
 
 export default function preload() {
   this.load.tilemapTiledJSON("map", "/dragon/map.json")

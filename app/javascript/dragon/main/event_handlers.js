@@ -1,5 +1,4 @@
-const WALL = 1
-const CAVE = 5
+import { WALL, CAVE } from "./constants"
 
 export const keydownEventHandlers = {
   " ": Space,
