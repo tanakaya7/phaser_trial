@@ -2,10 +2,10 @@ import { keydownEventHandlers } from "./event_handlers"
 
 export default function create() {
   const self = this
-  this._main = {}
-  this._main.map = this.make.tilemap({key: "main_map"})
-  const background = this._main.map.addTilesetImage("background")
-  this._main.map.createDynamicLayer("World", background, 0, 0);
+  this._cave = {}
+  this._cave.map = this.make.tilemap({key: "cave_map"})
+  const background = this._cave.map.addTilesetImage("background")
+  this._cave.map.createDynamicLayer("floor", background, 0, 0);
 
   const player = createPlayer(this)
 
@@ -26,13 +26,13 @@ function createPlayer(game) {
   player._x = 1
   player._y = 1
 
-  game._main.player = player
+  game._cave.player = player
 
   return player
 }
 
 function prepareCamera(game) {
   game.cameras.main.setBounds(0, 0,
-    game._main.map.widthInPixels, game._main.map.heightInPixels);
-  game.cameras.main.startFollow(game._main.player);
+    game._cave.map.widthInPixels, game._cave.map.heightInPixels);
+  game.cameras.main.startFollow(game._cave.player);
 }

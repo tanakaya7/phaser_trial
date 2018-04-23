@@ -1,5 +1,5 @@
 export default function update(time, delta) {
-  const vars = this._main
+  const vars = this._cave
 
   vars.player.x = vars.player._x * 64
   vars.player.y = vars.player._y * 64
