@@ -13,6 +13,7 @@ export default function create() {
   window.document.onkeydown = event => {
     const h = keydownEventHandlers[event.key]
     if (h) h(self, event)
+    else console.log(event.key)
   }
 }
 

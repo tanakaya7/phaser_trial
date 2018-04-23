@@ -1,4 +1,8 @@
+const WALL = 1
+const CAVE = 5
+
 export const keydownEventHandlers = {
+  " ": Space,
   ArrowLeft,
   ArrowRight,
   ArrowUp,
@@ -16,7 +20,14 @@ function movable_to(game, deltaX, deltaY) {
 
   const tile = game._map.getTileAt(x, y, true)
 
-  return (tile.index !== 1)
+  return (tile.index !== WALL)
+}
+
+function Space(game, event) {
+  const tile =
+    game._map.getTileAt(game._player._x, game._player._y, true)
+
+  if (tile.index === CAVE) console.log("Enter the cave.")
 }
 
 function ArrowLeft(game, event) {
