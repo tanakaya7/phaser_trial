@@ -9,7 +9,6 @@ export const keydownEventHandlers = {
 }
 
 function movable_to(scene, deltaX, deltaY) {
-  const vars = scene._main
   const x = scene._player._x + deltaX
   const y = scene._player._y + deltaY
 
