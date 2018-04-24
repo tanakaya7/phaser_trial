@@ -27,10 +27,20 @@ function Space(scene, event) {
   const tile =
     scene._map.getTileAt(scene._player._x, scene._player._y, true)
 
+  if (scene.scene.key === "main")
+    SpaceKeydownOnMain(scene, tile, event)
+  else if (scene.scene.key === "cave")
+    SpaceKeydownOnCave(scene, tile, event)
+}
+
+function SpaceKeydownOnMain(scene, tile, event) {
   if (tile.index === CONSTANTS.ENTRANCE) {
     scene.scene.switch("cave")
   }
-  else if (tile.index === CONSTANTS.EXIT) {
+}
+
+function SpaceKeydownOnCave(scene, tile, event) {
+  if (tile.index === CONSTANTS.EXIT) {
     scene.scene.switch("main")
   }
 }
