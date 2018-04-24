@@ -35,13 +35,23 @@ function Space(scene, event) {
 
 function SpaceKeydownOnMain(scene, tile, event) {
   if (tile.index === CONSTANTS.ENTRANCE) {
-    scene.scene.switch("cave")
+    scene.cameras.main.fadeOut(1000, 0, 0, 0, (camera, progress) => {
+      if (progress === 1) {
+        scene.scene.switch("cave")
+        scene.cameras.main.fadeIn()
+      }
+    })
   }
 }
 
 function SpaceKeydownOnCave(scene, tile, event) {
   if (tile.index === CONSTANTS.EXIT) {
-    scene.scene.switch("main")
+    scene.cameras.main.fadeOut(1000, 0, 0, 0, (camera, progress) => {
+      if (progress === 1) {
+        scene.scene.switch("main")
+        scene.cameras.main.fadeIn()
+      }
+    })
   }
 }
 
