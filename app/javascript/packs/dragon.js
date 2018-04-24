@@ -15,14 +15,19 @@ const config = {
 const game = new Phaser.Game(config)
 const sceneNames = ["main", "cave"]
 
-window.document.onkeydown = event => {
+game._currentScene = () => {
   const sceneName = sceneNames.find(n => {
     return game.scene.isActive(n)
   })
 
-  if (sceneName) {
+  if (sceneName) return game.scene.getScene(sceneName)
+}
+
+window.document.onkeydown = event => {
+  const currentScene = game._currentScene()
+
+  if (currentScene) {
     const h = keydownEventHandlers[event.key]
-    const currentScene = game.scene.getScene(sceneName)
     if (h) h(currentScene, event)
   }
 }
