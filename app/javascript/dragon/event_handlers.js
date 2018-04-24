@@ -1,4 +1,4 @@
-import { WALL, ENTRANCE } from "./constants"
+import * as CONSTANTS from "./constants"
 
 export const keydownEventHandlers = {
   " ": Space,
@@ -20,15 +20,18 @@ function movable_to(scene, deltaX, deltaY) {
 
   const tile = scene._map.getTileAt(x, y, true)
 
-  return (tile.index !== WALL)
+  return !CONSTANTS.COLLISION_TILES.includes(tile.index)
 }
 
 function Space(scene, event) {
   const tile =
     scene._map.getTileAt(scene._player._x, scene._player._y, true)
 
-  if (tile.index === ENTRANCE) {
+  if (tile.index === CONSTANTS.ENTRANCE) {
     scene.scene.switch("cave")
+  }
+  else if (tile.index === CONSTANTS.EXIT) {
+    scene.scene.switch("main")
   }
 }
 
