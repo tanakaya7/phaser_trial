@@ -24,6 +24,8 @@ function createPlayer(scene) {
 
 function prepareCamera(scene) {
   scene.cameras.main.setBounds(0, 0,
-    scene._map.widthInPixels, scene._map.heightInPixels);
-  scene.cameras.main.startFollow(scene._player);
+    scene._map.widthInPixels, scene._map.heightInPixels)
+  scene.cameras.main.startFollow(scene._player)
+  scene.cameras.main.name = "mainCamera" // For debugging.
+  scene.cameras.main.fadeIn()
 }
