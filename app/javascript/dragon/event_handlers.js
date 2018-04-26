@@ -15,7 +15,7 @@ function movable_to(scene, deltaX, deltaY) {
   if (x === 0 || x === scene._map.width - 1) return false
   if (y === 0 || y === scene._map.height - 1) return false
 
-  const tile = scene._map.getTileAt(x, y, true)
+  const tile = scene._map.getTileAt(x, y, true, "floor")
 
   return !CONSTANTS.COLLISION_TILES.includes(tile.index)
 }

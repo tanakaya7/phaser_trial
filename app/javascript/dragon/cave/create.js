@@ -2,8 +2,9 @@ export default function create() {
   const self = this
   this._cave = {}
   this._map = this.make.tilemap({key: "cave_map"})
-  const background = this._map.addTilesetImage("background")
-  this._map.createDynamicLayer("floor", background, 0, 0);
+  const tiles = this._map.addTilesetImage("tiles")
+  this._map.createDynamicLayer("floor", tiles, 0, 0);
+  this._map.createDynamicLayer("treasures", tiles, 0, 0);
 
   const player = createPlayer(this)
 

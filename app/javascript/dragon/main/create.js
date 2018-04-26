@@ -1,8 +1,8 @@
 export default function create() {
   const self = this
   this._map = this.make.tilemap({key: "main_map"})
-  const background = this._map.addTilesetImage("background")
-  this._map.createDynamicLayer("World", background, 0, 0);
+  const tiles = this._map.addTilesetImage("tiles")
+  this._map.createDynamicLayer("floor", tiles, 0, 0);
 
   const player = createPlayer(this)
 
