@@ -12,10 +12,8 @@ function movable_to(scene, deltaX, deltaY) {
   const x = scene._player._x + deltaX
   const y = scene._player._y + deltaY
 
-  if (x === 0) return false
-  if (x === scene._map.width - 1) return false
-  if (y === 0) return false
-  if (y === scene._map.height - 1) return false
+  if (x === 0 || x === scene._map.width - 1) return false
+  if (y === 0 || y === scene._map.height - 1) return false
 
   const tile = scene._map.getTileAt(x, y, true)
 
