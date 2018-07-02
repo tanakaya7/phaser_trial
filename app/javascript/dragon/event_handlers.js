@@ -21,16 +21,16 @@ function movable_to(scene, deltaX, deltaY) {
 }
 
 function Space(scene, event) {
+  if (scene.scene.key === "main")
+    SpaceKeydownOnMain(scene, event)
+  else if (scene.scene.key === "cave")
+    SpaceKeydownOnCave(scene, event)
+}
+
+function SpaceKeydownOnMain(scene, event) {
   const tile =
     scene._map.getTileAt(scene._player._x, scene._player._y, true)
 
-  if (scene.scene.key === "main")
-    SpaceKeydownOnMain(scene, tile, event)
-  else if (scene.scene.key === "cave")
-    SpaceKeydownOnCave(scene, tile, event)
-}
-
-function SpaceKeydownOnMain(scene, tile, event) {
   if (tile.index === CONSTANTS.ENTRANCE) {
     scene.cameras.main.fadeOut(1000, 0, 0, 0, (camera, progress) => {
       if (progress === 1) {
@@ -41,8 +41,18 @@ function SpaceKeydownOnMain(scene, tile, event) {
   }
 }
 
-function SpaceKeydownOnCave(scene, tile, event) {
-  if (tile.index === CONSTANTS.EXIT) {
+function SpaceKeydownOnCave(scene, event) {
+  const treasure =
+    scene._map.getTileAt(scene._player._x, scene._player._y, true, "treasures")
+
+  const floorTile =
+    scene._map.getTileAt(scene._player._x, scene._player._y, true, "floor")
+
+  if (treasure.index === CONSTANTS.TREASURE) {
+    scene._treasuresLayer.removeTileAt(scene._player._x, scene._player._y)
+    scene.sys.game._score++
+  }
+  else if (floorTile.index === CONSTANTS.EXIT) {
     scene.cameras.main.fadeOut(1000, 0, 0, 0, (camera, progress) => {
       if (progress === 1) {
         scene.scene.switch("main")

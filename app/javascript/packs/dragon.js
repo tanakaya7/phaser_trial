@@ -21,6 +21,8 @@ game._currentScene = () => {
   if (sceneName) return game.scene.getScene(sceneName)
 }
 
+game._score = 0
+
 window.document.onkeydown = event => {
   const handler = keydownEventHandlers[event.key]
   const currentScene = game._currentScene()
