@@ -5,5 +5,5 @@ export default function update(time, delta) {
   const tile = this._map.getTileAt(this._player._x, this._player._y, true, "floor")
 
   const div = document.getElementById("message")
-  div.textContent = tile.index
+  div.textContent = `Score: ${this.sys.game._score}`
 }

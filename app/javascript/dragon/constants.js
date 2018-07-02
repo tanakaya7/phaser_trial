@@ -6,4 +6,5 @@ export const ENTRANCE = 5
 export const WALL = 6
 export const FLOOR = 7
 export const EXIT = 8
+export const TREASURE = 9
 export const COLLISION_TILES = [RIM, WALL]
