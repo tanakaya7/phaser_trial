@@ -12,3 +12,14 @@ div#message {
   padding: 5px;
   background-color: #ccc;
 }
+
+div#keys {
+  text-align: center;
+  width: 310px;
+  padding: 5px;
+
+  span {
+    border: 1px solid black;
+    padding: 5px 10px;
+  }
+}
