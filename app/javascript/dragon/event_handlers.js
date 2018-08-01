@@ -63,21 +63,37 @@ function SpaceKeydownOnCave(scene, event) {
 }
 
 function ArrowLeft(scene, event) {
-  scene._player.setFrame(9)
+  if (scene._player.frame.name === CONSTANTS.LEFT_1)
+    scene._player.setFrame(CONSTANTS.LEFT_2)
+  else
+    scene._player.setFrame(CONSTANTS.LEFT_1)
+
   if (movable_to(scene, -1, 0)) scene._player._x--
 }
 
 function ArrowRight(scene, event) {
-  scene._player.setFrame(5)
+  if (scene._player.frame.name === CONSTANTS.RIGHT_1)
+    scene._player.setFrame(CONSTANTS.RIGHT_2)
+  else
+    scene._player.setFrame(CONSTANTS.RIGHT_1)
+
   if (movable_to(scene, 1, 0)) scene._player._x++
 }
 
 function ArrowUp(scene, event) {
-  scene._player.setFrame(2)
+  if (scene._player.frame.name === CONSTANTS.BACK_1)
+    scene._player.setFrame(CONSTANTS.BACK_2)
+  else
+    scene._player.setFrame(CONSTANTS.BACK_1)
+
   if (movable_to(scene, 0, -1)) scene._player._y--
 }
 
 function ArrowDown(scene, event) {
-  scene._player.setFrame(6)
+  if (scene._player.frame.name === CONSTANTS.FRONT_1)
+    scene._player.setFrame(CONSTANTS.FRONT_2)
+  else
+    scene._player.setFrame(CONSTANTS.FRONT_1)
+
   if (movable_to(scene, 0, 1)) scene._player._y++
 }
