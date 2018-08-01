@@ -1,3 +1,5 @@
+import * as CONSTANTS from "../constants";
+
 export default function create() {
   const self = this
   this._map = this.make.tilemap({key: "main_map"})
@@ -13,7 +15,7 @@ function createPlayer(scene) {
   const player = scene.add.sprite(0, 0, "player")
 
   player.setOrigin(-0.2, 0.1)
-  player.setFrame(7)
+  player.setFrame(CONSTANTS.FRONT_0)
   player._x = 1
   player._y = 1
 

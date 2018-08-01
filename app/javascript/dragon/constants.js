@@ -9,11 +9,15 @@ export const EXIT = 8
 export const TREASURE = 9
 export const COLLISION_TILES = [RIM, WALL]
 
+export const BACK_0 = 1
 export const BACK_1 = 0
 export const BACK_2 = 2
+export const RIGHT_0 = 4
 export const RIGHT_1 = 3
 export const RIGHT_2 = 5
+export const FRONT_0 = 7
 export const FRONT_1 = 6
 export const FRONT_2 = 8
+export const LEFT_0 = 10
 export const LEFT_1 = 9
 export const LEFT_2 = 11
