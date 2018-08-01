@@ -13,7 +13,7 @@ function createPlayer(scene) {
   const player = scene.add.sprite(0, 0, "player")
 
   player.setOrigin(-0.2, 0.1)
-  player.setFrame(0)
+  player.setFrame(7)
   player._x = 1
   player._y = 1
 

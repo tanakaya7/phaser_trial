@@ -63,19 +63,21 @@ function SpaceKeydownOnCave(scene, event) {
 }
 
 function ArrowLeft(scene, event) {
-  scene._player.setFrame(0)
+  scene._player.setFrame(9)
   if (movable_to(scene, -1, 0)) scene._player._x--
 }
 
 function ArrowRight(scene, event) {
-  scene._player.setFrame(1)
+  scene._player.setFrame(5)
   if (movable_to(scene, 1, 0)) scene._player._x++
 }
 
 function ArrowUp(scene, event) {
+  scene._player.setFrame(2)
   if (movable_to(scene, 0, -1)) scene._player._y--
 }
 
 function ArrowDown(scene, event) {
+  scene._player.setFrame(6)
   if (movable_to(scene, 0, 1)) scene._player._y++
 }
