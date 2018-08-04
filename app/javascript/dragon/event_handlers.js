@@ -64,26 +64,41 @@ function SpaceKeydownOnCave(scene, event) {
 
 function ArrowLeft(scene, event) {
   if (movable_to(scene, -1, 0)) {
-    scene._player._x--;
-
-    if (scene._player.frame.name === CONSTANTS.LEFT_1)
-      scene._player.setFrame(CONSTANTS.LEFT_2)
-    else
+    if (scene._player.frame.name === CONSTANTS.LEFT_0) {
       scene._player.setFrame(CONSTANTS.LEFT_1)
-  }
-  else {
-    scene._player.setFrame(CONSTANTS.LEFT_0)
+      scene._player._x--;
+    }
+    else if (scene._player.frame.name === CONSTANTS.LEFT_1) {
+      scene._player.setFrame(CONSTANTS.LEFT_2)
+      scene._player._x--;
+    }
+    else if (scene._player.frame.name === CONSTANTS.LEFT_2) {
+      scene._player.setFrame(CONSTANTS.LEFT_1)
+      scene._player._x--;
+    }
+    else {
+      scene._player.setFrame(CONSTANTS.LEFT_0)
+    }
   }
 }
 
 function ArrowRight(scene, event) {
   if (movable_to(scene, 1, 0)) {
-    scene._player._x++;
-
-    if (scene._player.frame.name === CONSTANTS.RIGHT_1)
-      scene._player.setFrame(CONSTANTS.RIGHT_2)
-    else
+    if (scene._player.frame.name === CONSTANTS.RIGHT_0) {
       scene._player.setFrame(CONSTANTS.RIGHT_1)
+      scene._player._x++;
+    }
+    else if (scene._player.frame.name === CONSTANTS.RIGHT_1) {
+      scene._player.setFrame(CONSTANTS.RIGHT_2)
+      scene._player._x++;
+    }
+    else if (scene._player.frame.name === CONSTANTS.RIGHT_2) {
+      scene._player.setFrame(CONSTANTS.RIGHT_1)
+      scene._player._x++;
+    }
+    else {
+      scene._player.setFrame(CONSTANTS.RIGHT_0)
+    }
   }
   else {
     scene._player.setFrame(CONSTANTS.RIGHT_0)
