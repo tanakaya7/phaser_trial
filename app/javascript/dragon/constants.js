@@ -7,7 +7,8 @@ export const WALL = 6
 export const FLOOR = 7
 export const EXIT = 8
 export const TREASURE = 9
-export const COLLISION_TILES = [RIM, WALL]
+export const POND = 10
+export const COLLISION_TILES = [RIM, WALL, POND]
 
 export const BACK_0 = 1
 export const BACK_1 = 0
