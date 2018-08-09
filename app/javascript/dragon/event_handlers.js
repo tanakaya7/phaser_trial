@@ -63,19 +63,57 @@ function SpaceKeydownOnCave(scene, event) {
 }
 
 function ArrowLeft(scene, event) {
-  scene._player.setFrame(0)
-  if (movable_to(scene, -1, 0)) scene._player._x--
+  if (movable_to(scene, -1, 0)) {
+    scene._player._x--;
+
+    if (scene._player.frame.name === CONSTANTS.LEFT_1)
+      scene._player.setFrame(CONSTANTS.LEFT_2)
+    else
+      scene._player.setFrame(CONSTANTS.LEFT_1)
+  }
+  else {
+    scene._player.setFrame(CONSTANTS.LEFT_0)
+  }
 }
 
 function ArrowRight(scene, event) {
-  scene._player.setFrame(1)
-  if (movable_to(scene, 1, 0)) scene._player._x++
+  if (movable_to(scene, 1, 0)) {
+    scene._player._x++;
+
+    if (scene._player.frame.name === CONSTANTS.RIGHT_1)
+      scene._player.setFrame(CONSTANTS.RIGHT_2)
+    else
+      scene._player.setFrame(CONSTANTS.RIGHT_1)
+  }
+  else {
+    scene._player.setFrame(CONSTANTS.RIGHT_0)
+  }
 }
 
 function ArrowUp(scene, event) {
-  if (movable_to(scene, 0, -1)) scene._player._y--
+  if (movable_to(scene, 0, -1)) {
+    scene._player._y--;
+
+    if (scene._player.frame.name === CONSTANTS.BACK_1)
+      scene._player.setFrame(CONSTANTS.BACK_2)
+    else
+      scene._player.setFrame(CONSTANTS.BACK_1)
+  }
+  else {
+    scene._player.setFrame(CONSTANTS.BACK_0)
+  }
 }
 
 function ArrowDown(scene, event) {
-  if (movable_to(scene, 0, 1)) scene._player._y++
+  if (movable_to(scene, 0, 1)) {
+    scene._player._y++;
+
+    if (scene._player.frame.name === CONSTANTS.FRONT_1)
+      scene._player.setFrame(CONSTANTS.FRONT_2)
+    else
+      scene._player.setFrame(CONSTANTS.FRONT_1)
+  }
+  else {
+    scene._player.setFrame(CONSTANTS.FRONT_0)
+  }
 }
